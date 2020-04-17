@@ -19,7 +19,13 @@ public class Empresa {
     public void addEmpleado(Empleado pers1){
         planilla.add(pers1);
     }
-    public void quitEmpleado(String nombre){
+    public void quitEmpleado(String nombre)throws NotExistingEmployeeException{
+    //
+        if(!planilla.removeIf(obj -> {
+            return (obj.getNombre()).equalsIgnoreCase(nombre);
+        })){
+            throw new NotExistingEmployeeException("Empleado no existe.");
+        }
 
     }
 }
