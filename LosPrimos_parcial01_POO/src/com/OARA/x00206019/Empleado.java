@@ -18,15 +18,16 @@ abstract class Empleado {
     public String getPuesto() {
         return puesto;
     }
-
+//agregar excepcion en main if documentos
     public ArrayList<Documento> getDocumentos() {
         return documentos;
     }
     public void addDocumento(Documento doc){
     documentos.add(doc);
     }
-    public void removeDocumento(String nombre){
-        documentos.removeIf(obj->{return (obj.getNombre()).equalsIgnoreCase(nombre);});
+    public void removeDocumento(String nombre)throws NotExistingDocumentException{
+        if(!documentos.removeIf(obj->{return (obj.getNombre()).equalsIgnoreCase(nombre);}))
+            throw new NotExistingDocumentException("Documento inexistente");
     }
 
     public double getSalario() {
