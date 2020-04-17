@@ -7,20 +7,25 @@ public final class CalculadoraImpuestos {
     public static double calcularPago(Empleado unEmpleado){
         double pago=0,restante=0;
         if (unEmpleado instanceof ServicioProfesional){
-            totalRenta = (0.1)*(unEmpleado.getSalario());
-            pago = (unEmpleado.getSalario())-(totalRenta);
+            pago = (0.1)*(unEmpleado.getSalario());
+            totalRenta+=pago;
         }else if (unEmpleado instanceof PlazaFija){
-            totalAFP = (0.0625)*(unEmpleado.getSalario());
-            totalISSS = (0.03)*(unEmpleado.getSalario());
-            restante = (unEmpleado.getSalario())-(totalAFP)-(totalISSS);
+            pago = (0.0625)*(unEmpleado.getSalario());
+            totalAFP+=pago;
+            pago += (0.03)*(unEmpleado.getSalario());
+            totalISSS+=(0.03)*(unEmpleado.getSalario());
+            restante = (unEmpleado.getSalario())-(pago);
             if (restante >= 0.01 && restante <= 472.00){
-                totalRenta = 0;
+                pago += 0;
             }else if (restante >= 472.01 && restante <= 895.24){
-                totalRenta = (0.1)*(restante-472)+(17.67);
+                pago += (0.1)*(restante-472)+(17.67);
+                totalRenta+=(0.1)*(restante-472)+(17.67);
             }else if (restante >= 895.25 && restante <= 2038.10){
-                totalRenta = (0.2)*(restante-895.24)+(60);
+                pago += (0.2)*(restante-895.24)+(60);
+                totalRenta+=(0.2)*(restante-895.24)+(60);
             }else if (restante >= 2038.11){
-                totalRenta = (0.3)*(restante-2038.10)+(288.57);
+                pago += (0.3)*(restante-2038.10)+(288.57);
+                totalRenta+=(0.3)*(restante-2038.10)+(288.57);
             }
             pago = (restante)-(totalRenta);
         }return pago;
