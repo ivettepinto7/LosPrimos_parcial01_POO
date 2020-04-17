@@ -9,6 +9,7 @@ abstract class Empleado {
         this.nombre = nombre;
         this.puesto = puesto;
         this.salario = salario;
+        documentos = new ArrayList<>();
     }
 
     public String getNombre() {
