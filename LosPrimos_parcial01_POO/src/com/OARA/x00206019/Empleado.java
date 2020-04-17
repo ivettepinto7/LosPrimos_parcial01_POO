@@ -1,6 +1,6 @@
 package com.OARA.x00206019;
 import java.util.ArrayList;
-public class Empleado {
+abstract class Empleado {
     protected String nombre, puesto;
     protected ArrayList<Documento> documentos;
     protected double salario;
@@ -22,11 +22,11 @@ public class Empleado {
     public ArrayList<Documento> getDocumentos() {
         return documentos;
     }
-    public void addDocumentos(Documento doc){
-
+    public void addDocumento(Documento doc){
+    documentos.add(doc);
     }
     public void removeDocumento(String nombre){
-
+        documentos.removeIf(obj->{return (obj.getNombre()).equalsIgnoreCase(nombre);});
     }
 
     public double getSalario() {
