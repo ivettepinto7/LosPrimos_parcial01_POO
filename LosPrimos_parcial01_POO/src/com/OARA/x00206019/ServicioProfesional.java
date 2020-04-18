@@ -1,5 +1,7 @@
 package com.OARA.x00206019;
 
+import java.util.ArrayList;
+
 public class ServicioProfesional extends Empleado {
     private int mesesContrato;
 
@@ -18,7 +20,6 @@ public class ServicioProfesional extends Empleado {
         return "Nombre: "+getNombre()
                 +"\nPuesto: "+getPuesto()
                 +"\nSalario: $"+getSalario()
-                +"\nMeses contrato: "+getMeses()+"" +
-                "\nDocumentos: \n"+ documentos.forEach(s->{s.toString()};);
+                +"\nMeses contrato: "+getMeses()+"";
     }
 }

@@ -23,21 +23,13 @@ public class Empresa {
     }
     public void quitEmpleado(String nombre)throws NotExistingEmployeeException{
     //
-        ArrayList<Empleado> empMismoNombre= new ArrayList<>();
-        planilla.forEach(s->{if(s.getNombre().equalsIgnoreCase(nombre)){empMismoNombre.add(s);};});
-        if(!empMismoNombre.isEmpty()){
-            throw new NotExistingEmployeeException("El Empleado"+nombre+" no existe.");
-        }else{
-
-
-
             if(!planilla.removeIf(obj -> {
             return (obj.getNombre()).equalsIgnoreCase(nombre);
         })){
             throw new NotExistingEmployeeException("El Empleado"+nombre+" no existe.");
-        }}
+        }
 }
-    }
+
     public void consultarEmpleados(){
        planilla.forEach(s-> {
            if (s instanceof ServicioProfesional)

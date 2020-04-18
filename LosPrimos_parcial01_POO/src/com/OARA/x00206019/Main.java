@@ -31,10 +31,26 @@ public class Main {
                         int mesesContrato = Integer.parseInt(JOptionPane.showInputDialog(null, "Meses de contrato:"));
                         ServicioProfesional persona = new ServicioProfesional(nombreEmp, puestoEmp, salarioEmp, mesesContrato);
                         empresa1.addEmpleado(persona);
+                        int jop=1;
+                        while(jop!=0) {
+                            String nomb = JOptionPane.showInputDialog(null, "Documento\nnombre:");
+                            String num = JOptionPane.showInputDialog(null, "Documento\nnumero:");
+                            Documento docs = new Documento(nomb, num);
+                            persona.addDocumento(docs);
+                            jop = Integer.parseInt(JOptionPane.showInputDialog(null, "Agregar otro documento \n1. Si\n0. No"));
+                        }
                     } else if (op2 == 2) {
                         int extension = Integer.parseInt(JOptionPane.showInputDialog(null, "Extension del empleado:"));
                         PlazaFija persona = new PlazaFija(nombreEmp, puestoEmp, salarioEmp, extension);
                         empresa1.addEmpleado(persona);
+                        int jop=1;
+                        while(jop!=0){
+                            String nomb=JOptionPane.showInputDialog(null,"Documento\nnombre:");
+                            String num=JOptionPane.showInputDialog(null,"Documento\nnumero:");
+                            Documento docs= new Documento(nomb,num);
+                            persona.addDocumento(docs);
+                            jop=Integer.parseInt(JOptionPane.showInputDialog(null,"Agregar otro documento \n1. Si\n0. No"));
+                        }
                     } else {
                         throw new NotExistingEmployeeTypeException("El tipo de empleado no es valido");
                     }
