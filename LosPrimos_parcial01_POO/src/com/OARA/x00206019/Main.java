@@ -45,8 +45,8 @@ public class Main {
                         empresa1.addEmpleado(persona);
                         int jop=1;
                         while(jop!=0){
-                            String nomb=JOptionPane.showInputDialog(null,"Documento\nnombre:");
-                            String num=JOptionPane.showInputDialog(null,"Documento\nnumero:");
+                            String nomb=JOptionPane.showInputDialog(null,"Documento \n Nombre:");
+                            String num=JOptionPane.showInputDialog(null,"Documento \n Numero:");
                             Documento docs= new Documento(nomb,num);
                             persona.addDocumento(docs);
                             jop=Integer.parseInt(JOptionPane.showInputDialog(null,"Agregar otro documento \n1. Si\n0. No"));
@@ -75,9 +75,27 @@ public class Main {
                 }
             break;
             case 3://Ver lista de empleados
-                empresa1.consultarEmpleados();
+                //empresa1.consultarEmpleados();
+                empresa1.getPlanilla().forEach(s->{
+                    if (s instanceof ServicioProfesional)
+                        JOptionPane.showMessageDialog(null, "Servicio Profesional"
+                                +"\nNombre: "+s.getNombre()
+                        +"\nPuesto: "+s.getPuesto()
+                        +"\nSalario: $"+s.getSalario()
+                        +"\nMeses contrato: "+((ServicioProfesional) s).getMeses()
+                                +s.getDocumentos());
+                });
+                empresa1.getPlanilla().forEach(s-> {
+                    if (s instanceof PlazaFija)
+                        JOptionPane.showMessageDialog(null, "Plaza fija"
+                                +"\nNombre: "+s.getNombre()
+                        +"\nPuesto: "+s.getPuesto()
+                        +"\nSalario: $"+s.getSalario()
+                        +"\nExtensión: "+((PlazaFija) s).getExtension()
+                        +s.getDocumentos());
+                });
                 break;
-            case 4:
+            case 4://Calcular sueldo
                 break;
             case 5:
                 break;

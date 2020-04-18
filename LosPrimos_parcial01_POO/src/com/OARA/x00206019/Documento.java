@@ -16,11 +16,10 @@ public class Documento {
         return numero;
     }
 
-    @Override
+   @Override
     public String toString() {
-        return "\nDocumento{" +
-                "nombre='" + nombre + '\'' +
-                ", numero='" + numero + '\'' +
-                '}';
+        return "\nDocumento"
+                +"\nNombre: " + nombre
+                +"\nNumero: " + numero;
     }
 }

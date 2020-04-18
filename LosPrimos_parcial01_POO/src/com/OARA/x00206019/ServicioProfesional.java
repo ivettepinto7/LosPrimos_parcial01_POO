@@ -16,10 +16,4 @@ public class ServicioProfesional extends Empleado {
     public void setMeses(int mesesContrato) {
         this.mesesContrato = mesesContrato;
     }
-    public String verEmp(){
-        return "Nombre: "+getNombre()
-                +"\nPuesto: "+getPuesto()
-                +"\nSalario: $"+getSalario()
-                +"\nMeses contrato: "+getMeses()+"";
-    }
 }

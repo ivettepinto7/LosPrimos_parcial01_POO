@@ -28,16 +28,5 @@ public class Empresa {
         })){
             throw new NotExistingEmployeeException("El Empleado"+nombre+" no existe.");
         }
-}
-
-    public void consultarEmpleados(){
-       planilla.forEach(s-> {
-           if (s instanceof ServicioProfesional)
-               JOptionPane.showMessageDialog(null, ((ServicioProfesional) s).verEmp());
-       });
-       planilla.forEach(s-> {
-           if (s instanceof PlazaFija)
-               JOptionPane.showMessageDialog(null, ((PlazaFija) s).emp());
-       });
     }
 }
