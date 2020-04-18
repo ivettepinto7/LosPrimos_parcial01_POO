@@ -24,7 +24,7 @@ public class Main {
             op=9;
         }
         switch (op) {
-            case 1:
+            case 1://Agregar empleado
                 try {
                     while (nombreEmp.equalsIgnoreCase(""))
                         nombreEmp = JOptionPane.showInputDialog(null, "Ingrese el nombre: ");
@@ -55,7 +55,7 @@ public class Main {
                     JOptionPane.showMessageDialog(null,"Creacion de empleado CANCELADA");
                 }
                 break;
-            case 2:
+            case 2://Despedir empleado
                 nombreEmp= JOptionPane.showInputDialog(null, "Nombre empleado a despedir: ");
                 try{
                     empresa1.quitEmpleado(nombreEmp);
@@ -63,7 +63,8 @@ public class Main {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             break;
-            case 3:
+            case 3://Ver lista de empleados
+                empresa1.consultarEmpleados();
                 break;
             case 4:
                 break;

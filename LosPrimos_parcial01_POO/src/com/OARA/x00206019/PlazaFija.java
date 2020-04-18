@@ -14,4 +14,10 @@ public class PlazaFija extends Empleado {
     public void setExtension(int extension) {
         this.extension = extension;
     }
+    public String emp(){
+        return "Nombre: "+getNombre()
+                +"\nPuesto: "+getPuesto()
+                +"\nSalario: $"+getSalario()
+                +"\nExtensión: "+getExtension();
+    }
 }
