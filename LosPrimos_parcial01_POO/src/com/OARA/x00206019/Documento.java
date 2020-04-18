@@ -18,7 +18,7 @@ public class Documento {
 
     @Override
     public String toString() {
-        return "Documento{" +
+        return "\nDocumento{" +
                 "nombre='" + nombre + '\'' +
                 ", numero='" + numero + '\'' +
                 '}';
