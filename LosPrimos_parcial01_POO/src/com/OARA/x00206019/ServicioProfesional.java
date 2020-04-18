@@ -18,6 +18,7 @@ public class ServicioProfesional extends Empleado {
         return "Nombre: "+getNombre()
                 +"\nPuesto: "+getPuesto()
                 +"\nSalario: $"+getSalario()
-                +"\nMeses contrato: "+getMeses();
+                +"\nMeses contrato: "+getMeses()+"" +
+                "\nDocumentos: \n"+documentos.forEach(s->{s.getNombre()});
     }
 }

@@ -1,20 +1,13 @@
 package com.OARA.x00206019;
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
 //excepcion de salario negativo
         int op,op2;
-
-        String nombre="";
-        try {
-            while(nombre.equalsIgnoreCase(""))
-            nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre de la empresa: ");
-        } catch(NullPointerException ex){
-            JOptionPane.showMessageDialog(null, "Error: "+ ex.toString()+"\nNombre de empresa: null");
-        }
-        Empresa empresa1 = new Empresa(nombre);
+        Empresa empresa1 = new Empresa("Los Primos");
     do{
         String nombreEmp="", puestoEmp="", numeroEmp="";
         double salarioEmp=0;
@@ -57,6 +50,8 @@ public class Main {
                 break;
             case 2://Despedir empleado
                 nombreEmp= JOptionPane.showInputDialog(null, "Nombre empleado a despedir: ");
+                ArrayList<Empleado> empleadosMismosNombres= new ArrayList<>();
+
                 try{
                     empresa1.quitEmpleado(nombreEmp);
                 }catch(NotExistingEmployeeException ex){
