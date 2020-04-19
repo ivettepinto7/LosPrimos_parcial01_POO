@@ -75,7 +75,6 @@ public class Main {
                 }
             break;
             case 3://Ver lista de empleados
-                //empresa1.consultarEmpleados();
                 empresa1.getPlanilla().forEach(s->{
                     if (s instanceof ServicioProfesional)
                         JOptionPane.showMessageDialog(null, "Servicio Profesional"
@@ -96,8 +95,22 @@ public class Main {
                 });
                 break;
             case 4://Calcular sueldo
+                String nomb;
+                try {
+                    do {
+                        nomb = JOptionPane.showInputDialog(null, "Nombre del empleado a calcular sueldo: ");
+                    }while (nomb.equalsIgnoreCase(""));
+                    String finalnomb = nomb;
+                    empresa1.getPlanilla().forEach(s-> {
+                            if (s.getNombre().equals(finalnomb))
+                                JOptionPane.showMessageDialog(null, "Pago: "+CalculadoraImpuestos.calcularPago(s));
+                        });
+                    }catch (NullPointerException ex){
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                    }
                 break;
-            case 5:
+            case 5://Mostrar totales
+                JOptionPane.showMessageDialog(null, CalculadoraImpuestos.mostrarTotales());
                 break;
             case 0:
                 JOptionPane.showMessageDialog(null, "Saliendo . . .");
