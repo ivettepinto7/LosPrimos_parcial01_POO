@@ -106,7 +106,7 @@ public class Main {
                                 JOptionPane.showMessageDialog(null, "Pago: "+CalculadoraImpuestos.calcularPago(s));
                         });
                     }catch (NullPointerException ex){
-                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                        JOptionPane.showMessageDialog(null, "Cancelando . . .");
                     }
                 break;
             case 5://Mostrar totales
